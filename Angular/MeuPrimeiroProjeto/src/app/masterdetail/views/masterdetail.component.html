@@ -1,0 +1,64 @@
+<div class="container margem">
+    <h1>MASTER / DETAIL</h1>
+    <h1>Codigo: {{cursoSelecionado.codigo}}</h1>
+    <h1>Descrição: {{cursoSelecionado.descricao}}</h1>
+    <h1>Carga Horária: {{cursoSelecionado.ch}}</h1>
+
+    <hr>
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <ul>
+                <li *ngFor="let item of listaCursos"  (click)="selecionar(item)" class="list-group-item">
+                    <span [class.selecionado]="item === cursoSelecionado" class="badge" style="margin-right:10px">{{item.codigo}}</span>
+                    <a [routerLink]="['/masterdetail']">{{item.descricao}}</a>
+                </li>
+            </ul>
+        </div>
+
+        <div nfIf="cursoSelecionado">
+
+
+            <div class="col-md-6">
+
+                <!-- Campos de Texto -->
+
+                <div style="width: 500px;">
+                    <div class="form-group">
+                        <label for="codigo">Código:</label>
+                        <input type="text" [(ngModel)]="cursoSelecionado.codigo" class="form-control" id="txtCodigo" name="txtCodigo">
+                    </div>
+                </div>
+
+                <div style="width: 500px;">
+                    <div class="form-group">
+                        <label for="descricao">Descrição:</label>
+                        <input type="text" [(ngModel)]="cursoSelecionado.descricao" class="form-control" id="txtDescricao" name="txtDescricao">
+                    </div>
+                </div>
+
+                <div style="width: 500px;">
+                    <div class="form-group">
+                        <label for="ch">Carga Horária:</label>
+                        <input type="text" [(ngModel)]="cursoSelecionado.ch" class="form-control" id="txtCH" name="txtCH">
+                    </div>
+                </div>
+               
+
+                <!-- Botões -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <button type="button" class="btn btn-info" >
+                            <span class="glyphicon glyphicon-pencil" ></span>
+                            Incluir
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

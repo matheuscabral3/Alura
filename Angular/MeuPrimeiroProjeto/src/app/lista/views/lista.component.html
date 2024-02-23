@@ -1,0 +1,10 @@
+<div class="container margem">
+    <h1>LISTAGEM DE CURSOS</h1>
+    <div class="col-md-12">
+        <ul>
+            <li *ngFor="let item of listaCursos" class="list-group-item">
+                <span class="badge">{{item.codigo}}</span><a href=#>{{item.descricao}}</a>
+            </li>
+        </ul>
+    </div>
+</div>

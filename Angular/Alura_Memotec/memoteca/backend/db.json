@@ -1,0 +1,58 @@
+{
+  "pensamentos": [
+    {
+      "conteudo": "Utilizar a ferramenta Angular CLI para criar um Projeto Angular.",
+      "autoria": "Curso Angular",
+      "modelo": "modelo1",
+      "id": 1
+    },
+    {
+      "conteudo": "Conhecer a estrutura de um componente Angular (HTML, CSS e TS)",
+      "autoria": "Curso Angular",
+      "modelo": "modelo2",
+      "id": 2
+    },
+    {
+      "conteudo": "Entender como ocorre o fluxo de dados no componente.",
+      "autoria": "Curso Angular",
+      "modelo": "modelo3",
+      "id": 3
+    },
+    {
+      "conteudo": "Utilizar rotas para adicionar navegação dinâmica entre as telas da aplicação.",
+      "autoria": "Curso Angular",
+      "modelo": "modelo1",
+      "id": 4
+    },
+    {
+      "conteudo": "Aprender o que são e como utilizar algumas das principais diretivas do Angular.",
+      "autoria": "Curso Angular",
+      "modelo": "modelo2",
+      "id": 5
+    },
+    {
+      "conteudo": "Compreender o que são Services e como utilizar a Injeção de Dependências.",
+      "autoria": "Curso Angular",
+      "modelo": "modelo3",
+      "id": 6
+    },
+    {
+      "conteudo": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s",
+      "autoria": "Curso Angular.",
+      "modelo": "modelo3",
+      "id": 7
+    },
+    {
+      "conteudo": "Continue a codar... Continue a codar... Continue a codar... Continue a codar... Continue a codar... Continue a codar... Continue a codar... Continue a codar...",
+      "autoria": "Curso Angular",
+      "modelo": "modelo2",
+      "id": 8
+    },
+    {
+      "conteudo": "Realizar a comunicação Cliente-Servidor através do HTTPClient para fazer requisições AJAX (Get, Post, Put e Delete).",
+      "autoria": "Curso Angular",
+      "modelo": "modelo3",
+      "id": 9
+    }
+  ]
+}
