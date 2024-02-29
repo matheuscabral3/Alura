@@ -1,2 +1,2 @@
 # FrontEnd
-Projetos Desenvolvidos com o Foco em Front-End.
+Projetos Desenvolvidos durante o aprendizado de cursos.
