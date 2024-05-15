@@ -28,7 +28,7 @@ h1 {
 .teclado {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px; 
+  gap: 10px;
   background-color: #cccccc;
   border-radius: 30px;
   padding: 10px;
@@ -52,4 +52,15 @@ input[type=tel] {
   padding: 10px;
   text-align: center;
   width: 280px;
+}
+
+#limparNumero {
+  background-color: #191919;
+  color: #fff;
+  border-radius: 12px;
+  border: 1px solid #fff;
+  width: 100px;
+  height: 35px;
+  display: flex;
+  text-align: center;
 }

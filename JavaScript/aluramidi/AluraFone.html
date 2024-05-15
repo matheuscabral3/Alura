@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="utf-8">
   <title>Página do Burnes - Home</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"></script>
+
   <link href="css/AluraFone.css" rel="stylesheet" />
+
 </head>
+
 <body>
 
- <h1> Alura Fone </h1>
- <section class="teclado">
+  <h1> Alura Fone </h1>
+  <section class="teclado">
     <input type="button" value="1">
     <input type="button" value="2">
     <input type="button" value="3">
@@ -22,8 +29,12 @@
     <input type="button" value="0">
     <input type="button" value="#">
   </section>
-  <input type="tel" placeholder="Digite seu telefone">
+  <br>
+  <input type="tel" id="txtTelefoneDDD" class="telefoneDDD" placeholder="(99) 99999-9999">
+  <!-- <input type="tel" id="txtTelefone2" class="telefoneSemDDD" placeholder="9999-9999"> -->
+  <button id="limparNumero">Limpar Número</button>
 
   <script src="js/main.js"></script>
 </body>
+
 </html>
