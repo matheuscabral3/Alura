@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmesAPI", "AluraBooks\FilmesAPI.csproj", "{57FF7CE6-D339-454E-BAA3-469637182EDD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmesApi", "FilmesApi\FilmesApi.csproj", "{9AF68C48-4AE6-4C7C-B819-EBC36946B1C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{57FF7CE6-D339-454E-BAA3-469637182EDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{57FF7CE6-D339-454E-BAA3-469637182EDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{57FF7CE6-D339-454E-BAA3-469637182EDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{57FF7CE6-D339-454E-BAA3-469637182EDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AF68C48-4AE6-4C7C-B819-EBC36946B1C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AF68C48-4AE6-4C7C-B819-EBC36946B1C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AF68C48-4AE6-4C7C-B819-EBC36946B1C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AF68C48-4AE6-4C7C-B819-EBC36946B1C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {AFC801B4-2723-4727-A18B-479BCEE1409C}
+		SolutionGuid = {8832BC05-82A5-4D26-A114-95391C4FE2F9}
 	EndGlobalSection
 EndGlobal
