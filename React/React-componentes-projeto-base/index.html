@@ -15,36 +15,78 @@
 
 <body>
 
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/cjs/react.production.min.js"
-        integrity="sha512-wGcZXj/wGy0PrK1PUJpABds0CNVMN5FOvx6RJ4VFX6d1cP21LHdn32pqqHZxnlAyTY3MN6agJQnV/RkWiOTZzw=="
+    <div id="root" class="root"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/cjs/react.production.min.js"
+        integrity="sha512-dv/5WzijjzOI9GrOjpi/V8N8u3XcuIN93BZMS1JM5U6XIpX1bo2G88q3rc3801lbSyc+D/HBIkCN6upGiRw8eQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/cjs/react-dom.production.min.js"
-        integrity="sha512-JNrK0svSdzmupRoUCGrnD5Im9ybaQ/dtwjbEE8top7nLk6qlV6jatbUinWJf1B+//gADpfBVm8nF1eyreAJX3w=="
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/cjs/react-dom.production.min.js"
+        integrity="sha512-1F4vmAUJi4eq+QfyF0EuBi5EWK3RHSwOFb15HKzZ3CfPHEw6Eg6NGQhnqqRetuMvRXPOT4JfcedhbaSbQnR8OQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.26.2/babel.min.js"
-        integrity="sha512-E93kfMJX6tlvTH0N0TmwNePkccFJAz+Lw8A2N+YDkHgKQazBZrM/XgdLoZKfnm5+vjEPkua04/KhqQZm/zbEJQ=="
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.3/babel.min.js"
+        integrity="sha512-MIXku7j6pJ0hqd2T4WXZMGerp3BU9B91rfLRDp/McDBNNdnwTD+yLJaz9AHcYXT6k16dYTkG9S2KRPGxaBIfBQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
 
     <script type="text/babel">
-
-        function Titulo() {
+        function Titulo({ children }) {
             return (
-                <h1 className='form__titulo'>Login</h1>
-            )
-        }
-        
-        function Subtitulo() {
-            return (
-                <h2 className='form__texto'>Boas-vindas! Faça seu login.</h2>
+                <h1 className='form__titulo'>{children}</h1>
             )
         }
 
+        function Subtitulo({ children }) {
+            return (
+                <h2 className='form__texto'>{children}</h2>
+            )
+        }
+
+        function CampoDeDigitacao({ label, tipo, placeholder }) {
+            return (
+                <div className='form__campo-digitacao'>
+                    <label for='email'>{label}</label>
+                    <input type='{tipo}'
+                        placeholder={'Digite o seu e-mail ou usuário'}
+                        required
+                        id='email' />
+                </div>
+            )
+        }
+
+        function Botao({ children }) {
+            return (
+                <button type='submit' className='form__botao'>{children}</button>
+            )
+        }
+
+        function PaginaDeLogin() {
+            return (
+                <div className='container-login'>
+                    <img src='./img/imagem-login.png' alt='uma mulher negra de cabelos crespos usando óculos e mexendo no computador, também há o logo da codeconnect' />
+                    <section>
+                        <form>
+                            <Titulo>Login</Titulo>
+                            <Subtitulo>Boas vindas! Faça o seu login</Subtitulo>
+                            <CampoDeDigitacao
+                                label='E-mail ou usuário'
+                                tipo='email'
+                                placeholder='Digite o seu e-mail' />
+                            <CampoDeDigitacao
+                                label='Senha'
+                                tipo='password'
+                                placeholder='Digite a sua senha' />
+                            <Botao>Login</Botao>
+                        </form>
+                    </section>
+                </div>
+            )
+        }
+
+        ReactDOM.createRoot(document.getElementById('root')).render(<Titulo />)
     </script>
+
 
 </body>
 
