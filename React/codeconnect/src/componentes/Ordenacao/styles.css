@@ -1,0 +1,23 @@
+.ordenacao {
+  height: 33px;
+  align-content: center;
+  margin: 20px 0;
+
+  & ul {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+.ordenacao__item__link {
+  color: var(--cinza-claro);
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.ordenacao__item__link--ativo {
+  color: var(--verde-destaque);
+  text-decoration: none;
+  list-style-type: none;
+  border-bottom: 1px solid var(--verde-destaque);
+}

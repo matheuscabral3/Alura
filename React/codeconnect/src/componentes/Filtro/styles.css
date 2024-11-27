@@ -2,21 +2,48 @@
   display: flex;
   justify-content: space-between;
   margin-top: 1em;
+
+  & ul {
+    list-style-type: none;
+    display: flex;
+    gap: 10px;
+
+    & li {
+      background-color: var(--cinza-claro);
+      color: var(--cinza-escuro);
+      font-size: 18px;
+      padding: 0.25em 0.5em;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    & li:hover {
+      opacity: 0.5;
+    }
+  }
+
+  & button {
+    border: none;
+    background-color: transparent;
+    color: var(--cinza-medio);
+    font-size: 18px;
+  }
 }
 
+/*
 .container-filtro ul {
   list-style-type: none;
   display: flex;
   gap: 10px;
-}
-
+} 
 .container-filtro ul li {
   background-color: var(--cinza-claro);
   color: var(--cinza-escuro);
   font-size: 18px;
   padding: 0.25em 0.5em;
   border-radius: 4px;
+  cursor: pointer;
 }
+
 
 .container-filtro button {
   border: none;
@@ -24,3 +51,5 @@
   color: var(--cinza-medio);
   font-size: 18px;
 }
+
+*/
