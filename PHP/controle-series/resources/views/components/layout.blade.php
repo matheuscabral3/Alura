@@ -15,6 +15,7 @@
 <body>
     <div class="container">
 
+        <!-- ELEMENTO PADRÃO EM TODOS OS FORMULÁRIOS -->
         <h1>{{$title}}</h1>
 
         {{$slot}}
