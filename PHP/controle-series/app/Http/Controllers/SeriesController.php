@@ -4,13 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SeriesFormRequest;
-use App\Models\Serie;
+use App\Models\Series;
+use App\Models\Season;
+use App\Models\Episode;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class SeriesController extends Controller
 {
+    // Modelo:
+    // View > Controller > Action ...
+    // Instalar o DEBUG do laravel:
+    // composer require barryvdh/laravel-debugbar --dev
+
+
     // MÉTODO EQUIVALENTE AO "SELECT" NA BASE...
     public function index(Request $request)
     {
@@ -24,10 +32,14 @@ class SeriesController extends Controller
         // ====================
 
 
-        // $series = Serie::all();
+        $series = Series::all();
+        // Removido as ordenações por conta do ESCOPO GLOBAL da Model -> boosted
+        // $series = Serie::active();
+        // $series = Serie::with(['temporadas'])->get();
+
         // $series = Serie::where('nome', 'Lost')->orderBy('nome')->get();        
         // $series = Serie::where('nome', 'Lost')->orderBy('nome')->take(10)->get();
-        $series = Serie::query()->orderBy('nome')->get();
+        // $series = Serie::query()->orderBy('nome')->get();
 
 
         // ====================
@@ -104,8 +116,31 @@ class SeriesController extends Controller
 
 
         // Modelo para gravar um dado na session.
-        $serie = Serie::create($request->all());
+        $serie = Series::create($request->all());
         // $request->session()->flash("mensagem.sucesso", "Série '$serie->nome' Adicionada com Sucesso.");
+
+        // Cada série, por padrão terá 5 episódios por Temporada.
+        for ($i = 1; $i <= $request->seasonsQty; $i++) {
+
+            // Modelo mais longo. Possui a necessidade de informar as chaves...
+            // Season::create([
+            //     'series_id' => $serie->id
+            // ]);
+
+            // Modelo Simplificado.
+            $season = $serie->seasons()->create([
+                'number' => $i,
+            ]);
+
+            for ($j = 1; $j <= $request->episodesPerSeason; $j++) {
+                # code...
+                $season->episodes()->create([
+                    'number' => $j,
+                ]);
+            }
+
+        }
+
         // ====================
 
         // return redirect('/series');
@@ -120,11 +155,10 @@ class SeriesController extends Controller
     // MÉTODO EQUIVALENTE AO "DELETE" NA BASE...
     // public function destroy(Request $request)
     // public function destroy(Serie $series, Request $request)
-    public function destroy(Serie $series)
+    public function destroy(Series $series)
     {
         // DEBUG - O que está sendo passado como parâmetro.
-        // dd($request->route());
-
+        // dd($series);
 
         // $serie = Serie::find($request->series);    // SELECT FROM series WHERE id = $request->series
         //Serie::destroy($request->series);           // DELETE FROM series WHERE id = $request->series
@@ -144,14 +178,21 @@ class SeriesController extends Controller
     }
 
 
-    public function edit(Serie $series)
+    public function edit(Series $series)
     {
+        // dd($series->temporadas);                             // Acessar a Propriedade
+        // dd($series->temporadas());                           // Acessar o Método/Relacionamento
+        // dd($series->temporadas()->get());                    // Filtrar ... Funciona como um ORDER BY.
+        // dd($series->temporadas()->whereIn()->get());         // Filtrar ... Funciona como um ORDER BY.
+
         return view("series.edit")->with("serie", $series);
     }
 
 
     // MÉTODO EQUIVALENTE AO "UPDATE" NA BASE...
-    public function update(Serie $series, SeriesFormRequest $request)
+    // Sem a necessidade de passar parâmetros,
+    // pois atribui tudo automatico através do ELOQUENT
+    public function update(Series $series, SeriesFormRequest $request)
     {
         // $series->nome = $request->nome;
         $series->fill($request->all());

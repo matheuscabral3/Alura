@@ -6,6 +6,13 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class SeriesFormRequest extends FormRequest
 {
+
+    // Modelo:
+    // View > Model > FormRequest ...
+    // Utilizado para realizar algumas validações... 
+
+
+
     /**
      * Determine if the user is authorized to make this request.
      */
