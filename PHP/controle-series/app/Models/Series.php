@@ -15,6 +15,7 @@ class Series extends Model
 
     protected $fillable = ['nome'];
     // protected $with = ['temporadas'];
+    // protected $with = ['seasons'];
 
     // ========== Criação do relacionamento. ==========
     // Cada Serie "POSSUI" X Temporadas.

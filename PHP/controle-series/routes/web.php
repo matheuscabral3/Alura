@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SeasonsController;
 use App\Http\Controllers\SeriesController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,3 +39,7 @@ Route::get('/', function () {
 
 Route::resource('/series', SeriesController::class)
     ->except(['show']);
+
+
+// Responsável por Buscar temporadas da série informada.
+Route::get('/series/{series}/seasons', [SeasonsController::class, 'index'])->name('seasons.index');

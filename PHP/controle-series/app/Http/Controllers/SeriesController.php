@@ -31,7 +31,6 @@ class SeriesController extends Controller
         // Exibir DEBUG -> dd($series);
         // ====================
 
-
         $series = Series::all();
         // Removido as ordenações por conta do ESCOPO GLOBAL da Model -> boosted
         // $series = Serie::active();
@@ -118,6 +117,7 @@ class SeriesController extends Controller
         // Modelo para gravar um dado na session.
         $serie = Series::create($request->all());
         // $request->session()->flash("mensagem.sucesso", "Série '$serie->nome' Adicionada com Sucesso.");
+        $seasons = [];
 
         // Cada série, por padrão terá 5 episódios por Temporada.
         for ($i = 1; $i <= $request->seasonsQty; $i++) {
@@ -128,18 +128,42 @@ class SeriesController extends Controller
             // ]);
 
             // Modelo Simplificado.
-            $season = $serie->seasons()->create([
-                'number' => $i,
-            ]);
+            // $season = $serie->seasons()->create([
+            //     'number' => $i,
+            // ]);
 
-            for ($j = 1; $j <= $request->episodesPerSeason; $j++) {
-                # code...
-                $season->episodes()->create([
-                    'number' => $j,
-                ]);
-            }
+            // for ($j = 0; $j <= $request->episodesPerSeason; $j++) {
+            //     # code...
+            //     $season->episodes()->create([
+            //         'number' => $j,
+            //     ]);
+            // }
+            // ====================
 
+            $seasons[] = [
+                'series_id' => $serie->id,
+                'number' => $i
+            ];
         }
+        // Inserir o array inteiro diretamente - TEMPORADAS
+        Season::insert($seasons);
+
+
+        $episodes = [];
+        // O foreach serve para pegar os ID's respectivos das Temporadas: T1, T2
+        foreach ($serie->seasons as $season) {
+            for ($j = 1; $j <= $request->episodesPerSeason; $j++) {
+                // $season->episodes()->create([
+                //     'season_id' => $season->id,
+                //     'number' => $j
+                // ]);
+                $episodes[] = [
+                    'season_id' => $season->id,
+                    'number' => $j
+                ];
+            }
+        }
+        Episode::insert($episodes);
 
         // ====================
 
