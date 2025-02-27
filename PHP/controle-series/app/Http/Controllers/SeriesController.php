@@ -16,6 +16,10 @@ class SeriesController extends Controller
     // Instalar o DEBUG do laravel:
     // composer require barryvdh/laravel-debugbar --dev
 
+    // Este modelo de Interface + Repository: Garante flexibilidade e facilita mudanças futuras na implementação.
+    // CONSTRUTOR:
+    // Interface: Acessa os Métodos
+    // Repository: Escreve a lógica de acesso ao banco de dados.
     public function __construct(private SeriesRepository $repository)
     {
     }
@@ -87,7 +91,7 @@ class SeriesController extends Controller
     // MÉTODO EQUIVALENTE AO "INSERT" NA BASE...
     public function store(SeriesFormRequest $request)
     {
-
+        // Injeção de Dependência Dentro do Controller
         $serie = $this->repository->add($request);
 
         // return redirect('/series');

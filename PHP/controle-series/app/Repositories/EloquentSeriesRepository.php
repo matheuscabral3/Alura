@@ -6,10 +6,14 @@ use App\Http\Requests\SeriesFormRequest;
 use App\Models\Series;
 
 
-// A CLASSE é responsável por lidar com detalhes do banco de dados.
+// Utilizar Interface : Repository
+// Isso Garante Flexibilidade e facilita mudanças futuras nas implementações...
 
 class EloquentSeriesRepository implements SeriesRepository
 {
+    // Repository:
+    // Implementa a Interface e ESCREVE a lógica de Acesso ao Banco de dados.
+
 
     public function add(SeriesFormRequest $request): Series
     {
