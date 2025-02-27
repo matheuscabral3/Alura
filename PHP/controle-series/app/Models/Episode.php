@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class Episode extends Model
@@ -11,6 +12,7 @@ class Episode extends Model
 
     protected $fillable = ['number'];
     public $timestamps = false;
+    // protected $casts = ['watched' => 'boolean'];
 
     public function season()
     {
@@ -19,4 +21,10 @@ class Episode extends Model
         // belongsTo -> PERTENCE a X Model.
         return $this->belongsTo(Season::class);
     }
+
+    // public function scopeWatched(Builder $query)
+    // {
+    //     $query->where('watched', true);
+    // }
+
 }

@@ -1,11 +1,4 @@
-<x-layout title="Séries">
-
-    @isset($mensagemSucesso)
-        <div class="alert alert-success">
-            {{ $mensagemSucesso }}
-        </div>
-    @endisset
-
+<x-layout title="Séries" :mensagem-sucesso="$mensagemSucesso">
     <ul class="list-group">
         @foreach ($series as $serie)
             <li class="list-group-item d-flex justify-content-between align-items-center">

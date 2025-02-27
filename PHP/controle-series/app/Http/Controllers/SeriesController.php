@@ -5,11 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SeriesFormRequest;
 use App\Models\Series;
-use App\Models\Season;
-use App\Models\Episode;
-
+use App\Repositories\EloquentSeriesRepository;
+use App\Repositories\SeriesRepository;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class SeriesController extends Controller
 {
@@ -18,6 +16,9 @@ class SeriesController extends Controller
     // Instalar o DEBUG do laravel:
     // composer require barryvdh/laravel-debugbar --dev
 
+    public function __construct(private SeriesRepository $repository)
+    {
+    }
 
     // MÉTODO EQUIVALENTE AO "SELECT" NA BASE...
     public function index(Request $request)
@@ -26,7 +27,6 @@ class SeriesController extends Controller
         // $series = ['Punisher', 'Lost', 'Grey\'s Anatomy'];
         // $series = DB::select('SELECT nome FROM series;');
 
-        // Exibir DEBUG -> var_dump($series);
         // dump and die (executa um var_dump, encerra a conexão e não exibe a View - Utilizado para Debug).
         // Exibir DEBUG -> dd($series);
         // ====================
@@ -39,7 +39,6 @@ class SeriesController extends Controller
         // $series = Serie::where('nome', 'Lost')->orderBy('nome')->get();        
         // $series = Serie::where('nome', 'Lost')->orderBy('nome')->take(10)->get();
         // $series = Serie::query()->orderBy('nome')->get();
-
 
         // ====================
         // Modelo para gravar um dado na session.
@@ -88,90 +87,13 @@ class SeriesController extends Controller
     // MÉTODO EQUIVALENTE AO "INSERT" NA BASE...
     public function store(SeriesFormRequest $request)
     {
-        // 1º Modelo - Manual
-        // $nomeSerie = $request->input('nome');
-        // DB::insert('INSERT INTO series (nome) VALUES (?);', [$nomeSerie]);
-        // ====================
 
-        // 2º Modelo - Eloquent
-        // $nomeSerie = $request->input('nome');
-        // $nomeSerie = $request->nome;
-        // $serie = new Serie();
-        // $serie->nome = $nomeSerie;
-        // $serie->save();
-        // ====================
-
-        // 2º Modelo - Eloquent -> Utiliza todos os parâmetros da requisição ao mesmo tempo.
-        // Disponível por causa da Model -> '$fillable'
-        // dd($request->all());
-        // Serie::create($request->only(['nome']));
-        // Serie::create($request->except(['_token']));
-
-
-        // Realizar a validação, antes da Inclusão de uma nova série.
-        // $request->validate([
-        //     'nome' => ['required', 'min:3']
-        // ]);
-
-
-        // Modelo para gravar um dado na session.
-        $serie = Series::create($request->all());
-        // $request->session()->flash("mensagem.sucesso", "Série '$serie->nome' Adicionada com Sucesso.");
-        $seasons = [];
-
-        // Cada série, por padrão terá 5 episódios por Temporada.
-        for ($i = 1; $i <= $request->seasonsQty; $i++) {
-
-            // Modelo mais longo. Possui a necessidade de informar as chaves...
-            // Season::create([
-            //     'series_id' => $serie->id
-            // ]);
-
-            // Modelo Simplificado.
-            // $season = $serie->seasons()->create([
-            //     'number' => $i,
-            // ]);
-
-            // for ($j = 0; $j <= $request->episodesPerSeason; $j++) {
-            //     # code...
-            //     $season->episodes()->create([
-            //         'number' => $j,
-            //     ]);
-            // }
-            // ====================
-
-            $seasons[] = [
-                'series_id' => $serie->id,
-                'number' => $i
-            ];
-        }
-        // Inserir o array inteiro diretamente - TEMPORADAS
-        Season::insert($seasons);
-
-
-        $episodes = [];
-        // O foreach serve para pegar os ID's respectivos das Temporadas: T1, T2
-        foreach ($serie->seasons as $season) {
-            for ($j = 1; $j <= $request->episodesPerSeason; $j++) {
-                // $season->episodes()->create([
-                //     'season_id' => $season->id,
-                //     'number' => $j
-                // ]);
-                $episodes[] = [
-                    'season_id' => $season->id,
-                    'number' => $j
-                ];
-            }
-        }
-        Episode::insert($episodes);
-
-        // ====================
+        $serie = $this->repository->add($request);
 
         // return redirect('/series');
         // return redirect(route('series.index'));
         // return redirect()->route(route('series.index'));
         return to_route("series.index")->with("mensagem.sucesso", "Série '$serie->nome' Adicionada com Sucesso.");
-
 
     }
 
