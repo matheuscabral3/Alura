@@ -124,4 +124,25 @@ class EloquentSeriesRepository implements SeriesRepository
         });
     }
 
+
+    public function update(Series $series, SeriesFormRequest $request): Series
+    {
+        return DB::transaction(function () use ($series, $request) {
+            // $series->nome = $request->nome;
+            $series->fill($request->all());
+            $series->save();
+
+            return $series;
+        });
+    }
+
+
+    public function delete(Series $series): Series
+    {
+        return DB::transaction(function () use ($series) {
+            $series->delete();
+            return $series;
+        });
+    }
+
 }

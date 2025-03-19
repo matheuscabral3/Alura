@@ -111,9 +111,8 @@ class SeriesController extends Controller
         // dd($series);
 
         // $serie = Serie::find($request->series);    // SELECT FROM series WHERE id = $request->series
-        //Serie::destroy($request->series);           // DELETE FROM series WHERE id = $request->series
-        $series->delete();
-
+        // Serie::destroy($request->series);           // DELETE FROM series WHERE id = $request->series
+        //$series->delete();
 
         // Utilizado para guardar na sessão a mensagem.
         // $request->session()->put('mensagem.sucesso', 'Série Removida com sucesso!');
@@ -123,8 +122,12 @@ class SeriesController extends Controller
         // $request->session()->flash('mensagem.sucesso', "Série {$series->nome} Removida com sucesso!");
 
 
+        // Injeção de Dependência Dentro do Controller
+        $serie = $this->repository->delete($series);
+
+
         return to_route('series.index')
-            ->with('mensagem.sucesso', "Série {$series->nome} Removida com sucesso!");
+            ->with('mensagem.sucesso', "Série '{$serie->nome}' Removida com sucesso!");
     }
 
 
@@ -144,9 +147,12 @@ class SeriesController extends Controller
     // pois atribui tudo automatico através do ELOQUENT
     public function update(Series $series, SeriesFormRequest $request)
     {
-        // $series->nome = $request->nome;
-        $series->fill($request->all());
-        $series->save();
+        // Injeção de Dependência Dentro do Controller
+        $series = $this->repository->update($series, $request);
+
+        // // $series->nome = $request->nome;
+        // $series->fill($request->all());
+        // $series->save();
 
         return to_route('series.index')
             ->with('mensagem.sucesso', "Série '{$series->nome}' atualizada com Sucesso.");

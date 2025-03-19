@@ -12,5 +12,7 @@ interface SeriesRepository
     // Interface:
     // Define os métodos que o repositório deve ter.
     public function add(SeriesFormRequest $request): Series;
+    public function update(Series $series, SeriesFormRequest $request): Series;
+    public function delete(Series $series): Series;
 
 }
