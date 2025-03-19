@@ -4,6 +4,9 @@ namespace App\Repositories;
 
 use App\Http\Requests\SeriesFormRequest;
 use App\Models\Series;
+use App\Models\Season;
+use App\Models\Episode;
+use Illuminate\Support\Facades\DB;
 
 
 // Utilizar Interface : Repository
