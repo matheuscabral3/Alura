@@ -1,5 +1,20 @@
 ### Projeto Laravel 11 com Pacote de Autenticação Laravel/UI
 
+```
+Download da Tradução para Português-BR
+- Acessar o repositório Git: { http://github.com/lucascudo/laravel-pt-BR-localization }
+- Realizar o download dos arquivos
+- Após realizar o download, será adicionado um arquivo: lang/pt_BR
+- Dentro do arquivo .env, será ajustado esse trecho:
+De:
+-- APP_TIMEZONE=
+-- APP_LOCALE=en
+
+Para:
+-- APP_TIMEZONE=America/Sao_Paulo
+-- APP_LOCALE=pt_BR
+```
+
 ## Pré Requisitos
 
 Certifique que tenha esses programas instalados.
@@ -24,4 +39,4 @@ https://github.com/matheuscabral3/Alura/tree/main/PHP/mkt-app
 -   Instalar as dependências listadas no arquivo composer.json
 -   Instalar as dependências listadas no arquivo package.json
 -   Iniciar o servidor de desenvolvimento:
-    php artisan serve
+    -- php artisan serve

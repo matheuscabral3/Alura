@@ -10,8 +10,15 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     {{ __("You're logged in!") }}
+                    <br>
+                    <h2>Esta é a Dashboard</h2>
+                </div>
+                <hr>
+                <div class="p-6 text-gray-900">
+                    <h3>Este conteúdo foi inserido a mão.</h3>
                 </div>
             </div>
         </div>
     </div>
+
 </x-app-layout>
