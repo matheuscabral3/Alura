@@ -9,12 +9,27 @@
     <title>{{ config('app.name', 'Site') }}</title>
     <link rel="icon" href="{{ asset('images/title-icon.jpg') }}" type="image/jpg">
 
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css" />
+
+    <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+
+    <style>
+        .dt-layout-row {
+            padding: 0 10px;
+        }
+    </style>
+
 </head>
 
 <body class="font-sans antialiased">
