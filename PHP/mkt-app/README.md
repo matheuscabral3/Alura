@@ -5,13 +5,13 @@ Download da Tradução para Português-BR
 - Acessar o repositório Git: { **http://github.com/lucascudo/laravel-pt-BR-localization** }
 - Realizar o download dos arquivos
 - Após realizar o download, será adicionado um arquivo: lang/pt_BR
-- Ajustar as variáveis de ambiente dentro do arquivo __.env__
+- Ajustar as variáveis de ambiente dentro do arquivo `.env`
 
-__De:__
+`De:`
 -- APP_TIMEZONE=
 -- APP_LOCALE=en
 
-__Para:__
+`Para:`
 -- APP_TIMEZONE=America/Sao_Paulo
 -- APP_LOCALE=pt_BR
 
