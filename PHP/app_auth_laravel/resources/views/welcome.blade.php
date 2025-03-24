@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Projeto de Autenticação</title>
+    <title>{{ config('app.name', 'Site') }}</title>
+    <link rel="icon" href="{{ asset('images/title-icon.jpg') }}" type="image/jpg">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -20,7 +21,7 @@
 
     <style>
         #imgHeader {
-            width: 75px;
+            width: 50px;
             height: auto;
             margin-left: 10px;
             border-radius: 10px;
@@ -55,9 +56,9 @@
                 </ul>
             @else
                 <div id="login_area" class="col-md-3 text-end">
-                    <a href="{{ route('login') }}" class="btn btn-outline-primary me-2">Acessar</a>
+                    <a href="{{ route('login') }}" class="btn btn-outline-secondary me-2">Acessar</a>
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="btn btn-primary">Cadastrar-se</a>
+                        <a href="{{ route('register') }}" class="btn btn-outline-secondary me-2">Cadastrar-se</a>
                     @endif
                 </div>
             @endauth
@@ -66,7 +67,15 @@
 
     <div class="container">
         <h1>Bem vindo!</h1>
-        <h2>Esta é a Página Inicial</h2>
+        <h2>Este é um projeto simples, utilizando Laravel.</h2>
+        <br>
+        <hr>
+        <br>
+        <h3>Principais Funcionalidades:</h3>
+        <h5>Criação de usuário</h5>
+        <h5>Autenticação de usuário</h5>
+        <h5>Armazenamento com Banco de Dados utilizando SQLite</h5>
+        <h5>HTML, CSS, Javascript</h5>
     </div>
 
 
