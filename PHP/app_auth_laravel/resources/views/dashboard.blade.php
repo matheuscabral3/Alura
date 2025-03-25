@@ -15,6 +15,7 @@
                             <th class="px-4 py-2 border">ID</th>
                             <th class="px-4 py-2 border">Nome</th>
                             <th class="px-4 py-2 border">Email</th>
+                            <th class="px-4 py-2 border">Tipo de Usuário</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -23,6 +24,7 @@
                                 <td class="px-4 py-2 border">{{ $user->id }}</td>
                                 <td class="px-4 py-2 border">{{ $user->name }}</td>
                                 <td class="px-4 py-2 border">{{ $user->email }}</td>
+                                <td class="px-4 py-2 border">{{ $user->tipo_usuario }}</td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -36,11 +38,11 @@
         $(document).ready(function () {
             $('#tb_usuarios').DataTable({
                 // paging: true,                   // Ativar paginação
-                pageLength: 25,                 // Número de registros por página
+                pageLength: 10,                 // Número de registros por página
                 lengthChange: true,             // Não permitir alteração do número de registros por página
                 aLengthMenu: [
-                    [25, 50, 100, -1],
-                    [25, 50, 100, "Todos"]
+                    [10, 20, 50, -1],
+                    [10, 20, 50, "Todos"]
                 ],
                 iDisplayLength: -1,
                 searching: true,                // Desativar a pesquisa

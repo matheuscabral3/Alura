@@ -1,32 +1,29 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
-class RegisteredUserController extends Controller
+
+class UserController extends Controller
 {
-    /**
-     * Display the registration view.
-     */
-    public function create(): View
+    // public function index(Request $request)
+    public function index()
     {
-        return view('auth.register');
+        $title = 'Controle de Usuários';
+
+        return view('usuarios.novo-usuario')->with('title', $title);
     }
 
-    /**
-     * Handle an incoming registration request.
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
+
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
@@ -43,9 +40,11 @@ class RegisteredUserController extends Controller
             'tipo_usuario' => $request->tipo_usuario,
         ]);
 
+
         event(new Registered($user));
 
-        Auth::login($user);
+        // Evitar logar com o usuário registrado no momento de INCLUIR.
+        // Auth::login($user);
 
         return redirect(route('dashboard', absolute: false));
     }
