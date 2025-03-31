@@ -33,10 +33,10 @@
 
         body {
             width: 100%;
-            height: 100dvh;
+            height: auto;
         }
 
-        #imgHeader {
+        #logo {
             width: 50px;
             height: auto;
             margin-left: 10px;
@@ -46,20 +46,73 @@
         #login_area {
             margin-right: 10px;
         }
+
+        .divisor {
+            margin: 50px 0;
+        }
+
+        .banner {
+            width: 100%;
+            height: 85vh;
+            background-color: #ededed;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .banner-imagem {
+            width: 40%;
+            height: auto;
+
+            & img {
+                width: 500px;
+                height: auto;
+            }
+        }
+
+        .banner-descricao {
+            width: 40%;
+            height: auto;
+
+            & span {
+                padding: 5px 0;
+            }
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+
+            & h5 {
+                border: 1px solid lightgray;
+                border-radius: 10px;
+                margin: 5px;
+                width: 40%;
+                padding: 10px;
+                text-align: start;
+            }
+        }
     </style>
+
+    <!-- CDN Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
+    <!-- CDN Icons Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
 
 <body>
 
     <header
-        class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom">
         <div class="col-md-3 mb-2 mb-md-0">
             <a href="#" class="d-inline-flex link-body-emphasis text-decoration-none">
-                <img src="{{ asset('images/title-icon.jpg') }}" alt="logo" srcset="" id="imgHeader">
+                <img src="{{ asset('images/title-icon.jpg') }}" alt="logo" srcset="" id="logo">
             </a>
         </div>
 
@@ -79,44 +132,68 @@
         @endif
     </header>
 
-    <div class="container">
-        <h1>Bem vindo!</h1>
-        <h2>Este é um projeto simples, utilizando Laravel.</h2>
-        <br>
-        <hr>
-        <br>
-        <h3>Principais Funcionalidades:</h3>
-        <ul class="list-group">
-            <li class="list-group-item">
+    <div class="banner">
+        <section class="banner-imagem">
+            <img src="{{ asset('images/banner-imagem.png') }}" alt="logo" srcset="">
+        </section>
+        <section class="banner-descricao">
+            <h1>Olá Bem Vindo</h1>
+            <h4>Sistema de Cadastro utilizando Laravel e Breeze.</h4>
+            <br>
+            <br>
+            <span>
                 Cadastro e Autenticação de Usuários utilizando
-                <strong>Laravel Breeze e ORM (Object Relational Mapping) </strong>
-            </li>
-            <li class="list-group-item">
-
+                <strong>Laravel Breeze e ORM (Object Relational Mapping)</strong>
+            </span>
+            <br>
+            <br>
+            <span>
                 <strong>Laravel Breeze: </strong>
                 Laravel Breeze oferece autenticação simples com login, registro,
                 verificação de e-mail e recuperação de senha.
-
-            </li>
-            <li class="list-group-item">
+            </span>
+            <br>
+            <br>
+            <span>
                 <strong>Eloquent ORM: </strong>
                 Fornece uma interface intuitiva para interagir com o banco de dados, permitindo
                 consultas complexas, manipulação de dados e definições de relações entre modelos.
-            </li>
-            <li class="list-group-item">
+            </span>
+            <br>
+            <br>
+            <span>
                 Armazenamento com Banco de Dados utilizando <strong>SQLite</strong>
-            </li>
-            <li class="list-group-item">
+            </span>
+            <br>
+            <br>
+            <span>
                 HTML, CSS, Javascript, Git, Bootstrap, jQuery;
-            </li>
-        </ul>
-
-        </h5>
-
-
+            </span>
+        </section>
     </div>
 
+    <section class="divisor"></section>
 
+    <div class="container">
+        <h5>
+            <i class="fa-solid fa-users"></i>
+            Cadastro de Usuários
+        </h5>
+        <h5>
+            <i class="fa-solid fa-lock"></i>
+            Autenticação e Segurança
+        </h5>
+        <h5>
+            <i class="fa-regular fa-envelope"></i>
+            Envio de Email
+        </h5>
+        <h5>
+            <i class="fa-solid fa-database"></i>
+            Conexão com Banco de Dados
+        </h5>
+    </div>
+
+    <section class="divisor"></section>
 
     @if (Route::has('login'))
         <div class="h-14.5 hidden lg:block"></div>
