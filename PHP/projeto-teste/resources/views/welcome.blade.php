@@ -51,6 +51,7 @@
             <br>
             <hr>
             <img src="{{ secure_asset('resources/images/banner-imagem.png') }}" alt="Imagem" srcset="">
+            <img alt="Imagem" srcset="{{ secure_asset('resources/images/banner-imagem.png') }}">
         </div>
     </main>
 
