@@ -17,11 +17,8 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @else
         <style>
-            * {
-                padding: 0;
-                border: 0;
-                margin: 0;
-                box-sizing: border-box;
+            h2 {
+                color: blue;
             }
         </style>
     @endif
