@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <link rel="icon" href="{{ secure_asset('images/title-icon.jpg') }}" type="image/jpg">
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+    <link rel="icon" href="{{ secure_asset('resources/images/title-icon.jpg') }}" type="image/jpg">
 
 
     <title>Título</title>
@@ -16,7 +16,7 @@
 
     <!-- Styles / Scripts -->
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite(['resources/css/app.css', 'resources/css/app-2.css', 'resources/js/app.js'])
     @else
     @endif
 </head>
@@ -50,7 +50,7 @@
             <h2>Exemplo prática de Deploy para aplicação em Laravel</h2>
             <br>
             <hr>
-            <img src="{{ secure_asset('images/banner-imagem.png') }}" alt="Imagem" srcset="">
+            <img src="{{ secure_asset('resources/images/banner-imagem.png') }}" alt="Imagem" srcset="">
         </div>
     </main>
 
