@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://projeto-teste-xi-blond.vercel.app/build/assets/app-B_lEUBxN.css">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
-    <title>Laravel</title>
+    <title>Título</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -17,7 +17,12 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @else
         <style>
-
+            * {
+                padding: 0;
+                border: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
         </style>
     @endif
 </head>
