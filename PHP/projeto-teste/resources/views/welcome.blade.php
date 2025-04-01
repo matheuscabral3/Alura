@@ -4,11 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <link rel="icon" href="{{ secure_asset('resources/images/title-icon.jpg') }}" type="image/jpg">
 
-
-    <title>Título</title>
+    <title>Laravel Deploy</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -50,7 +50,7 @@
             <h2>Exemplo prática de Deploy para aplicação em Laravel</h2>
             <br>
             <hr>
-            <img src="{{ asset('resources/images/banner-imagem.png') }}" alt="Imagem" srcset="">
+            <img src="{{ secure_asset('resources/images/banner-imagem.png') }}" alt="Imagem" srcset="">
         </div>
     </main>
 
