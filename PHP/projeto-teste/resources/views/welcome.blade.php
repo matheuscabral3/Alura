@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <link rel="icon" href="{{ asset('images/title-icon.jpg') }}" type="image/jpg">
+
 
     <title>Título</title>
 
@@ -16,11 +18,8 @@
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @else
-        <style>
-            h2 {
-                color: blue;
-            }
-        </style>
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ secure_asset('css/app-2.css') }}">
     @endif
 </head>
 
@@ -46,14 +45,16 @@
             </nav>
         @endif
     </header>
-    <div class="">
-        <main class="">
-            <div class="">
-                <h1>Bem Vindo!</h1>
-                <h2>Exemplo prática de Deploy para aplicação em Laravel</h2>
-            </div>
-        </main>
-    </div>
+
+    <main class="container">
+        <div class="container">
+            <h1>Bem Vindo!</h1>
+            <h2>Exemplo prática de Deploy para aplicação em Laravel</h2>
+            <br>
+            <hr>
+            <img src="{{ asset('images/banner-imagem.png') }}" alt="Imagem" srcset="">
+        </div>
+    </main>
 
     @if (Route::has('login'))
         <div class="h-14.5 hidden lg:block"></div>
