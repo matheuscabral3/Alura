@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <link rel="icon" href="{{ asset('images/title-icon.jpg') }}" type="image/jpg">
+    <link rel="icon" href="{{ secure_asset('images/title-icon.jpg') }}" type="image/jpg">
 
 
     <title>Título</title>
