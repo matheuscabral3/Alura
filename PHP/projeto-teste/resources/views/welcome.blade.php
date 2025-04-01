@@ -52,7 +52,7 @@
             <h2>Exemplo prática de Deploy para aplicação em Laravel</h2>
             <br>
             <hr>
-            <img src="{{ asset('images/banner-imagem.png') }}" alt="Imagem" srcset="">
+            <img src="{{ secure_asset('images/banner-imagem.png') }}" alt="Imagem" srcset="">
         </div>
     </main>
 
