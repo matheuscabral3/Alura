@@ -55,7 +55,7 @@
             <h1>Projeto Deploy</h1>
             <h2>Um projeto feito para ambiente de produção.</h2>
             <hr>
-            <img src="{{ asset('images/banner-imagem.png') }}" alt="">
+            <img class="img-banner" src="{{ asset('images/banner-imagem.png') }}" alt="">
         </div>
     </main>
 

@@ -1,3 +1,7 @@
 import './bootstrap';
 
-console.log('Script Carregado com sucesso!');
+import Alpine from 'alpinejs';
+
+window.Alpine = Alpine;
+
+Alpine.start();
