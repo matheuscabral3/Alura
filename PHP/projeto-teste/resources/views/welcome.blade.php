@@ -16,7 +16,7 @@
 
     <!-- Styles / Scripts -->
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-        @vite(['resources/css/app.css', 'resources/css/app-2.css', 'resources/js/app.js'])
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
     @else
     @endif
 </head>
@@ -50,7 +50,7 @@
             <h2>Exemplo prática de Deploy para aplicação em Laravel</h2>
             <br>
             <hr>
-            <img src="{{ secure_asset('resources/images/banner-imagem.png') }}" alt="Imagem" srcset="">
+            <img src="{{ asset('resources/images/banner-imagem.png') }}" alt="Imagem" srcset="">
         </div>
     </main>
 
