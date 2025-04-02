@@ -21,8 +21,8 @@
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
-        "APP_URL": "https://yourpruductionurl.com",
-        "APP_KEY": "base64:fsoy+SjUEyUUCL+nQ9XZFctLxNytLp4PYU0QpTcryPA=",
+        "APP_URL": "https://deploy-app-by-github.vercel.app/",
+        "APP_KEY": "base64:s6moTedUjo2kIU7Z6mWDD5rsZxsZEeguWCqVqlndkjM=",
 
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
