@@ -124,9 +124,9 @@
             @else
                 <div id="login_area" class="col-md-3 text-end">
                     <a href="{{ route('login') }}" class="btn btn-outline-secondary me-2">Acessar</a>
-                    <!-- @if (Route::has('register'))
+                    @if (Route::has('register'))
                         <a href="{{ route('register') }}" class="btn btn-outline-secondary me-2">Cadastrar-se</a>
-                    @endif -->
+                    @endif
                 </div>
             @endauth
         @endif

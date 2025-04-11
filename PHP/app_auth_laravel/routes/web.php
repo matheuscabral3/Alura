@@ -14,7 +14,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     $users = App\Models\User::all();
-    // $users = App\Models\User::where('id', '!=', auth()->id())->get(); // Exclui o usuário logado
+    // $users = App\Models\User::where('id', '!=', auth()->id())->get(); // Realiza uma consulta sem o usuário logado
     return view('dashboard')->with('users', $users);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
