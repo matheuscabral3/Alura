@@ -19,7 +19,7 @@
                  
                     <x-nav-link :href="route('novo-usuario.index')" :active="request()->routeIs('novo-usuario.index')">
                         Usuários
-                    </x-nav-link>
+                    </x-nav-link>                    
                 </div>
             </div>
 
